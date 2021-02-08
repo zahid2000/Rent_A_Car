@@ -7,7 +7,7 @@ namespace Entities.Concrete
 {
     public class CarBrand : IEntity
     {
-        public int BrandId { get; set; }
+        public int CarBrandId { get; set; }
         public string Brand { get; set; }
     }
 }
