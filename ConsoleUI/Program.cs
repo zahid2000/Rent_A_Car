@@ -10,31 +10,65 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            //CarGetTest();
+            //CarUpdateTest();
+            //CarAddTest();
+            //CarGetDetailsTest();
+            //CarColorTest();
+            //CarBrandTest();
+
+        }
+
+        private static void CarBrandTest()
+        {
+            CarBrandManager carBrandManager = new CarBrandManager(new EFCarBrandDal());
+            Console.WriteLine(carBrandManager.GetBrandId(2).CarBrandId + " " + carBrandManager.GetBrandId(2).Brand);
+            //foreach (var carBrand in carBrandManager.GetAll())
+            //{
+            //    Console.WriteLine("{0}-{1}",carBrand.CarBrandId,carBrand.Brand); 
+            //}
+        }
+
+        private static void CarColorTest()
+        {
+            CarColorManager colorManager = new CarColorManager(new EFCarColorDal());
+            foreach (var color in colorManager.GetAll())
+            {
+                Console.WriteLine("{0}-{1}", color.CarColorId, color.Color);
+            }
+        }
+
+        private static void CarGetDetailsTest()
+        {
             CarManager carManager = new CarManager(new EFCarDal());
-            //CarAddTest(carManager);
-            //CarUpdateTest(carManager);
-            //CarTest(carManager);
-
+            foreach (var carDetail in carManager.GetCarDetails())
+            {
+                Console.WriteLine("{0}/{1}/{2}/{3}", carDetail.CarName, carDetail.BrandName, carDetail.ColorName, carDetail.DailyPrice);
+            }
         }
 
-        private static void CarAddTest(CarManager carManager)
+        private static void CarAddTest()
         {
-            Car car1 = new Car { BrandId = 5, ColorId = 1, ModelYear = 2014, DailyPrice = 13500, Description = "Hunday" };
-            carManager.Add(car1);
+            CarManager carManager = new CarManager(new EFCarDal());
+            Car car = new Car { BrandId = 5, ColorId = 1, ModelYear = 2014, DailyPrice = 13500, Description = "Hunday" };
+            carManager.Add(car);
         }
 
-        private static void CarUpdateTest(CarManager carManager)
+        private static void CarUpdateTest()
         {
-            Car car3 = new Car { CarId = 11, BrandId = 3, ColorId = 1, ModelYear = 2014, DailyPrice = 23500, Description = "Mercedes Benz" };
-            carManager.Update(car3);
+            CarManager carManager = new CarManager(new EFCarDal());
+            Car car = new Car { CarId = 11, BrandId = 3, ColorId = 1, ModelYear = 2014, DailyPrice = 23500, Description = "Mercedes Benz" };
+            carManager.Update(car);
         }
 
-        private static void CarTest(CarManager carManager)
+        private static void CarGetTest()
         {
+            CarManager carManager = new CarManager(new EFCarDal());
+
             Console.WriteLine("--------------GetAll-------------------");
             foreach (var car in carManager.GetAll())
             {
-                
+
                 Console.WriteLine($"{car.CarId}\t {car.BrandId}\t {car.ColorId}\t{car.ModelYear}\t{car.DailyPrice}\t{car.Description}");
             }
             Console.WriteLine("--------------GetById-------------------");
@@ -53,5 +87,11 @@ namespace ConsoleUI
 
             }
         }
+
+       
+
+        
+
+        
     }
 }
