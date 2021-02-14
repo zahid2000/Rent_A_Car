@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -10,21 +12,39 @@ namespace Business.Concrete
 {
    public class CarColorManager : ICarColorService
     {
-        EFCarColorDal _colorDal;
+        EFCarColorDal _carColorDal;
 
         public CarColorManager(EFCarColorDal colorDal)
         {
-            _colorDal = colorDal;
+            _carColorDal = colorDal;
         }
 
-        public List<CarColor> GetAll()
+        public IResult Add(CarColor carColor)
         {
-            return _colorDal.GetAll();
+            _carColorDal.Add(carColor);
+            return new SuccessResult(Messages.CarColorAdded);
         }
 
-        public CarColor GetColorId(int colorId)
+        public IResult Delete(CarColor carColor)
         {
-            return  _colorDal.GetAll().SingleOrDefault(c => c.CarColorId == colorId);
+            _carColorDal.Delete(carColor);
+            return new SuccessResult(Messages.CarColorDeleted);
+        }
+
+        public IDataResult<List<CarColor>> GetAll()
+        {
+            return new SuccessDataResult<List<CarColor>>(_carColorDal.GetAll(),Messages.CarColorListed);
+        }
+
+        public IDataResult<CarColor> GetColorId(int colorId)
+        {
+            return new SuccessDataResult<CarColor>(_carColorDal.GetAll().SingleOrDefault(c => c.CarColorId == colorId));
+        }
+
+        public IResult Update(CarColor carColor)
+        {
+            _carColorDal.Update(carColor);
+         return new SuccessResult(Messages.CarColorUpdated);
         }
     }
 }

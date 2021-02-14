@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -17,14 +19,32 @@ namespace Business.Concrete
             _carBrandDal = carBrandDal;
         }
 
-        public List<CarBrand> GetAll()
+        public IResult Add(CarBrand carBrand)
         {
-            return _carBrandDal.GetAll();
+            _carBrandDal.Add(carBrand);
+            return new SuccessResult(Messages.CarBrandAdded);
         }
 
-        public CarBrand GetBrandId(int brandid)
+        public IResult Delete(CarBrand carBrand)
         {
-            return _carBrandDal.GetAll().SingleOrDefault(cb => cb.CarBrandId == brandid);
+            _carBrandDal.Delete(carBrand);
+            return new SuccessResult(Messages.CarBrandDeleted);
+        }
+
+        public IDataResult<List<CarBrand>> GetAll()
+        {
+            return new SuccessDataResult<List<CarBrand>>(_carBrandDal.GetAll(),Messages.CarBrandListed); 
+        }
+
+        public IDataResult<CarBrand> GetBrandId(int brandid)
+        {
+            return new SuccessDataResult<CarBrand>(_carBrandDal.GetAll().SingleOrDefault(cb => cb.CarBrandId == brandid));
+        }
+
+        public IResult Update(CarBrand carBrand)
+        {
+            _carBrandDal.Update(carBrand);
+            return new SuccessResult(Messages.CarBrandUpdated);
         }
     }
 }
