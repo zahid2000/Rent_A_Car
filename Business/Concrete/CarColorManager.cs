@@ -38,7 +38,7 @@ namespace Business.Concrete
 
         public IDataResult<CarColor> GetColorId(int colorId)
         {
-            return new SuccessDataResult<CarColor>(_carColorDal.GetAll().SingleOrDefault(c => c.CarColorId == colorId));
+            return new SuccessDataResult<CarColor>(_carColorDal.Get(c => c.CarColorId == colorId));
         }
 
         public IResult Update(CarColor carColor)

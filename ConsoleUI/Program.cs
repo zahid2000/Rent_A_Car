@@ -10,7 +10,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarGetTest();
+            //CarGetTest();
             //CarUpdateTest();
            // CarAddTest();
            // CarGetDetailsTest();
@@ -36,6 +36,9 @@ namespace ConsoleUI
             {
                 Console.WriteLine("{0}-{1}", color.CarColorId, color.Color);
             }
+            Console.WriteLine("---------------");
+            CarColor color1 = colorManager.GetColorId(1).Data;
+            Console.WriteLine("{0}-{1}", color1.CarColorId, color1.Color);
         }
 
         private static void CarGetDetailsTest()

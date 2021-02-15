@@ -38,7 +38,7 @@ namespace Business.Concrete
 
         public IDataResult<CarBrand> GetBrandId(int brandid)
         {
-            return new SuccessDataResult<CarBrand>(_carBrandDal.GetAll().SingleOrDefault(cb => cb.CarBrandId == brandid));
+            return new SuccessDataResult<CarBrand>(_carBrandDal.Get(cb => cb.CarBrandId == brandid));
         }
 
         public IResult Update(CarBrand carBrand)
