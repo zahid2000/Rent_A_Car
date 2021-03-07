@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -11,9 +12,9 @@ namespace Business.Concrete
 {
     public class CustomerManager : ICustomerService
     {
-        EFCustomerDal _customerDal;
+        ICustomerDal _customerDal;
 
-        public CustomerManager(EFCustomerDal customerDal)
+        public CustomerManager(ICustomerDal customerDal)
         {
             _customerDal = customerDal;
         }

@@ -11,12 +11,28 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //CarGetTest();
-            //CarUpdateTest();
-           // CarAddTest();
-           // CarGetDetailsTest();
+            // CarUpdateTest();
+            // CarAddTest();
+            // CarGetDetailsTest();
             //CarColorTest();
             //CarBrandTest();
+            //CarDeleteTest();
+        }
 
+        private static void CarDeleteTest()
+        {
+            CarManager carManager = new CarManager(new EFCarDal());
+            Car car = new Car
+            {
+                CarId = 1,
+                BrandId = 1,
+                ColorId = 4,
+                ModelYear = 2020,
+                DailyPrice = 12000,
+                Description = "Hunday Sonata"
+            };
+            var result = carManager.Delete(car);
+            Console.WriteLine(result.Message);
         }
 
         private static void CarBrandTest()
@@ -63,7 +79,15 @@ namespace ConsoleUI
         private static void CarAddTest()
         {
             CarManager carManager = new CarManager(new EFCarDal());
-            Car car = new Car { BrandId = 6, ColorId = 3, ModelYear = 2018, DailyPrice = 12500, Description = "Hunday" };
+            Car car = new Car
+            {
+               
+                BrandId = 1,
+                ColorId = 4,
+                ModelYear = 2020,
+                DailyPrice = 12000,
+                Description = "Hunday Sonata"
+            };
             var result=carManager.Add(car);
             Console.WriteLine(result.Message);
             
@@ -72,7 +96,7 @@ namespace ConsoleUI
         private static void CarUpdateTest()
         {
             CarManager carManager = new CarManager(new EFCarDal());
-            Car car = new Car { CarId = 11, BrandId = 3, ColorId = 1, ModelYear = 2014, DailyPrice = 23500, Description = "Mercedes Benz" };
+            Car car = new Car { CarId = 11, BrandId = 3, ColorId = 1, ModelYear = 2014, DailyPrice = 23500, Description = "Mercedes Benz2" };
             carManager.Update(car);
         }
 

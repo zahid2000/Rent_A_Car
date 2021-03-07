@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -12,9 +13,9 @@ namespace Business.Concrete
 {
     public class CarBrandManager : ICarBrandService
     {
-        EFCarBrandDal _carBrandDal;
+        IBrandDal _carBrandDal;
 
-        public CarBrandManager(EFCarBrandDal carBrandDal)
+        public CarBrandManager(IBrandDal carBrandDal)
         {
             _carBrandDal = carBrandDal;
         }

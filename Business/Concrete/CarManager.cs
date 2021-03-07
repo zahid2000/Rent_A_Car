@@ -44,15 +44,14 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour==12)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
-            else
-            {
+           
                 return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
 
-            }
+            
 
         }
 
