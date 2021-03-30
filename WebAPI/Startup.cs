@@ -30,18 +30,18 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<ICarService, CarManager>();
-            services.AddSingleton<ICarDal, EFCarDal>();
-            services.AddSingleton<ICarColorService, CarColorManager>();
-            services.AddSingleton<IColorDal, EFCarColorDal>();
-            services.AddSingleton<ICarBrandService, CarBrandManager>();
-            services.AddSingleton<IBrandDal, EFCarBrandDal>();
-            services.AddSingleton<ICustomerService, CustomerManager>();
-            services.AddSingleton<ICustomerDal, EFCustomerDal>();
-            services.AddSingleton<IUserService, UserManager>();
-            services.AddSingleton<IUserDal, EFUserDal>();
-            services.AddSingleton<IRentalService, RentalManager>();
-            services.AddSingleton<IRentalDal, EFRentalDal>();
+            //services.AddSingleton<ICarService, CarManager>();
+            //services.AddSingleton<ICarDal, EFCarDal>();
+            //services.AddSingleton<ICarColorService, CarColorManager>();
+            //services.AddSingleton<IColorDal, EFCarColorDal>();
+            //services.AddSingleton<ICarBrandService, CarBrandManager>();
+            //services.AddSingleton<IBrandDal, EFCarBrandDal>();
+            //services.AddSingleton<ICustomerService, CustomerManager>();
+            //services.AddSingleton<ICustomerDal, EFCustomerDal>();
+            //services.AddSingleton<IUserService, UserManager>();
+            //services.AddSingleton<IUserDal, EFUserDal>();
+            //services.AddSingleton<IRentalService, RentalManager>();
+            //services.AddSingleton<IRentalDal, EFRentalDal>();
 
 
         }
