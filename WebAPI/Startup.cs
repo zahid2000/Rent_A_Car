@@ -52,7 +52,7 @@ namespace WebAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+                   }
 
             app.UseHttpsRedirection();
 
