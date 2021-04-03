@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -64,15 +66,29 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
+        [HttpGet("getclaims")]
+        public IActionResult GetClaims(User user)
         {
-            var result = _userService.GetById(id);
-            if (result.Success)
+            var result = _userService.GetClaims(user);
+            if (result!=null)
+            {
+                return Ok(result.ToList());
+            }
+            return BadRequest(Messages.ClaimsNotFound);
+        }
+
+        [HttpGet("getbymail")]
+        public IActionResult GetByMail(string email)
+        {
+            var result = _userService.GetByMail(email);
+            if (result!=null)
             {
                 return Ok(result);
             }
-            return BadRequest(result);
+            return BadRequest(Messages.UserNotFoundForEmail);
+
+
         }
+       
     }
 }

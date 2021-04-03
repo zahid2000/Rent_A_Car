@@ -1,6 +1,8 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -48,5 +50,15 @@ namespace Business.Constants
         public static string ImageLimitExpiredForCar = "Bir arabaya maksimum 5 fotograf eklene bilir";
         public static string InvalidImageExtension = "Geçersiz dosya uzantısı, fotoğraf için kabul edilen uzantılar" + string.Join(",", ValidImageFileTypes);
         public static string CarImageMustbeExists="Boyle bir resim bulunamadi";
+      
+        public static string AuthorizationDenied="İcazəniz yoxdur";
+        public static string UserNotFoundForEmail="Bu mailə uyğun istifadəçi tapılmadı";
+        public static string ClaimsNotFound= "Tələb tapılmadı";
+        public static string UserNotFound="Id ye uygun araba bulunamadi";
+        public static string PasswordError="Şifrə yalnışdır";
+        public static string SuccessfulLogin="Giriş başarılı";
+        public static string UserAlreadyExists="İstifadəçi artıq mövcuddur";
+        public static string AccessTokenCreated = "Token oluşturuldu";
+        public static string UserRegistered = "Qeydiyyat tamamlandı ";
     }
 }
