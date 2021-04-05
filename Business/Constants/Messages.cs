@@ -51,7 +51,7 @@ namespace Business.Constants
         public static string InvalidImageExtension = "Geçersiz dosya uzantısı, fotoğraf için kabul edilen uzantılar" + string.Join(",", ValidImageFileTypes);
         public static string CarImageMustbeExists="Boyle bir resim bulunamadi";
       
-        public static string AuthorizationDenied="İcazəniz yoxdur";
+        public static string AuthorizationDenied="Yetkiniz yoxdur";
         public static string UserNotFoundForEmail="Bu mailə uyğun istifadəçi tapılmadı";
         public static string ClaimsNotFound= "Tələb tapılmadı";
         public static string UserNotFound="Id ye uygun araba bulunamadi";
