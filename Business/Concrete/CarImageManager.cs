@@ -5,6 +5,7 @@ using Core.Utilities.FileHelper;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dto;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -125,6 +126,11 @@ namespace Business.Concrete
                 return new SuccessResult();
             }
             return new ErrorResult(Messages.CarImageMustbeExists);
+        }
+
+        public IDataResult<List<CarImageDto>> GetCarImageDetails(int id)
+        {
+            return new SuccessDataResult<List<CarImageDto>>(_carImageDal.GetCarImagesDetail(p => p.CarId == id), Messages.Listed);
         }
     }
 

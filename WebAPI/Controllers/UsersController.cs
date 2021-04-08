@@ -86,8 +86,16 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(Messages.UserNotFoundForEmail);
-
-
+        }
+        [HttpGet("getuserdetails")]
+        public IActionResult GetUserDetails(int id)
+        {
+            var result = _userService.GetUserDetails(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
        
     }

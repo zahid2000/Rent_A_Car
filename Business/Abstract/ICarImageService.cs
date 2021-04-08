@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.Dto;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -16,5 +17,7 @@ namespace Business.Abstract
         IDataResult<List<CarImage>> GetAll();
         IDataResult<List<CarImage>> GetAllByCarId(int carId);
         IDataResult<CarImage> GetById(int id);
+        IDataResult<List<CarImageDto>> GetCarImageDetails(int id);
+
     }
 }

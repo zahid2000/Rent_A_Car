@@ -9,6 +9,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -57,6 +58,11 @@ namespace Business.Concrete
         public List<OperationClaim> GetClaims(User user)
         {
             return _userDal.GetClaims(user);
+        }
+
+        public IDataResult<List<UserDetailDto>> GetUserDetails( int id)
+        {
+            return new SuccessDataResult<List<UserDetailDto>>(_userDal.GetUserDetails(u => u.UserId == id));
         }
 
         public IResult Update(User user)
