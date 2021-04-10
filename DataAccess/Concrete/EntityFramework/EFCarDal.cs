@@ -13,6 +13,8 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EFCarDal : EFEntityRepositoryBase<Car, CarContext>, ICarDal
     {
+      
+
         public List<CarDetailDto> GetCarDetails(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             using (CarContext context = new CarContext())
@@ -23,13 +25,14 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  CarId = car.CarId,
-                                 BrandId=brand.CarBrandId,
-                                 ColorId=color.CarColorId,
+                                 BrandId = brand.CarBrandId,
+                                 ColorId = color.CarColorId,
                                  CarName = car.Description,
                                  BrandName = brand.Brand,
                                  ColorName = color.Color,
                                  DailyPrice = car.DailyPrice,
                                  ModelYear = car.ModelYear,
+                                 Description=car.Description,
                                  ImagePath = (from img in context.CarImages where img.CarId == car.CarId select img.ImagePath).ToArray()
 
                              };
